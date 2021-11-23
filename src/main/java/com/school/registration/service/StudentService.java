@@ -38,6 +38,6 @@ public class StudentService {
     }
 
     public Student getStudent(int id) {
-        return studentRepository.findById(id);
+        return studentRepository.findById(id).orElseThrow();
     }
 }
