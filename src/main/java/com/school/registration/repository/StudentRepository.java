@@ -19,6 +19,6 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @EntityGraph(attributePaths = {"registrations"})
     Optional<Student> findById(int id);
 
-    @Query(value = "SELECT s FROM Student s WHERE s.id NOT IN (SELECT s2.id FROM Student s2 INNER JOIN s2.registrations r INNER JOIN r.course c WHERE c.name = ?1)")
+    @Query(value = "SELECT s. FROM Student s WHERE s.id NOT IN (SELECT s2.id FROM Student s2 INNER JOIN s2.registrations r INNER JOIN r.course c WHERE c.name = ?1)")
     List<Student> findStudentsNotRegisteredByCourseName(String courseName);
 }
